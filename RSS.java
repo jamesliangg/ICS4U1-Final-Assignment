@@ -46,7 +46,7 @@ public class RSS{
           articleUrl = "https://outline.com/"+temp;
         }
         //author for CTV and NYT
-        if (line.contains("<dc:creator>") && newsNetwork != "SCMP"){
+        if (line.contains("<dc:creator>")){
           int firstPos = line.indexOf("<dc:creator>");
           String temp = line.substring(firstPos);
           temp = temp.replace("<dc:creator>","");
@@ -64,7 +64,7 @@ public class RSS{
           int lastPos = temp.indexOf("</pubDate>");
           temp = temp.substring(0,lastPos);
           pubDate = temp;
-          if (newsNetwork == "CTV" || newsNetwork == "NYT" || newsNetwork == "CNBC" || newsNetwork == "BBC"){
+          if (newsNetwork == "CTV" || newsNetwork == "NYT" || newsNetwork == "CNBC" || newsNetwork == "BBC" || newsNetwork == "HKFP"){
             articleArray.add(new Network(newsNetwork, title, articleUrl, author, pubDate));
           }
         }

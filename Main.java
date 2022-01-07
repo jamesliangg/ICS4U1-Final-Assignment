@@ -42,10 +42,10 @@ public class Main{
     System.out.println(articleArrayBBCTop.get(0).getNewsNetwork());
     System.out.println(articleArrayBBCTop.get(0).getArticleInfo());
 
-    ArrayList<Network> articleArraySCMP = new ArrayList<Network>();
-    articleArraySCMP = RSS.readRSS("SCMP", "https://www.scmp.com/rss/91/feed");
+    ArrayList<Network> articleArrayHKFP = new ArrayList<Network>();
+    articleArrayHKFP = RSS.readRSS("HKFP", "https://hongkongfp.com/feed/");
     System.out.println(Network.getNumOfArticles());
-    // System.out.println(articleArraySCMP.get(0).getNewsNetwork());
-    // System.out.println(articleArraySCMP.get(1).getArticleInfo());
+    System.out.println(articleArrayHKFP.get(0).getNewsNetwork());
+    System.out.println(articleArrayHKFP.get(0).getArticleInfo());
   }
 }
