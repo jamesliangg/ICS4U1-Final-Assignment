@@ -28,7 +28,7 @@ public class RSS{
           int firstPos = line.indexOf("<title>");
           String temp = line.substring(firstPos);
           temp = temp.replace("<title>","");
-          if (newsNetwork == "CBC" || newsNetwork == "CTV" || newsNetwork == "HuffPost"){
+          if (newsNetwork == "CBC" || newsNetwork == "CTV" || newsNetwork == "BBC"){
             temp = temp.replace("<![CDATA[","");
             temp = temp.replace("]]>","");
           }
@@ -64,7 +64,7 @@ public class RSS{
           int lastPos = temp.indexOf("</pubDate>");
           temp = temp.substring(0,lastPos);
           pubDate = temp;
-          if (newsNetwork == "CTV" || newsNetwork == "NYT" || newsNetwork == "CNBC"){
+          if (newsNetwork == "CTV" || newsNetwork == "NYT" || newsNetwork == "CNBC" || newsNetwork == "BBC"){
             articleArray.add(new Network(newsNetwork, title,articleUrl, author, pubDate));
           }
         }

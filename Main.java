@@ -18,22 +18,28 @@ public class Main{
     System.out.println(articleArrayCBCTop.get(0).getNewsNetwork());
     System.out.println(articleArrayCBCTop.get(0).getArticleInfo());
 
-    ArrayList<Network> articleArrayCTVTop = new ArrayList<Network>();
-    articleArrayCTVTop = RSS.readRSS("CTV", "https://www.ctvnews.ca/rss/ctvnews-ca-top-stories-public-rss-1.822009");
-    System.out.println(Network.getNumOfArticles());
-    System.out.println(articleArrayCTVTop.get(0).getNewsNetwork());
-    System.out.println(articleArrayCTVTop.get(1).getArticleInfo());
+    // ArrayList<Network> articleArrayCTVTop = new ArrayList<Network>();
+    // articleArrayCTVTop = RSS.readRSS("CTV", "https://www.ctvnews.ca/rss/ctvnews-ca-top-stories-public-rss-1.822009");
+    // System.out.println(Network.getNumOfArticles());
+    // System.out.println(articleArrayCTVTop.get(0).getNewsNetwork());
+    // System.out.println(articleArrayCTVTop.get(1).getArticleInfo());
 
-    ArrayList<Network> articleArrayNYTWorld = new ArrayList<Network>();
-    articleArrayNYTWorld = RSS.readRSS("NYT", "https://rss.nytimes.com/services/xml/rss/nyt/World.xml");
-    System.out.println(Network.getNumOfArticles());
-    System.out.println(articleArrayNYTWorld.get(0).getNewsNetwork());
-    System.out.println(articleArrayNYTWorld.get(1).getArticleInfo());
+    // ArrayList<Network> articleArrayNYTWorld = new ArrayList<Network>();
+    // articleArrayNYTWorld = RSS.readRSS("NYT", "https://rss.nytimes.com/services/xml/rss/nyt/World.xml");
+    // System.out.println(Network.getNumOfArticles());
+    // System.out.println(articleArrayNYTWorld.get(0).getNewsNetwork());
+    // System.out.println(articleArrayNYTWorld.get(1).getArticleInfo());
 
     ArrayList<Network> articleArrayCNBCTop = new ArrayList<Network>();
     articleArrayCNBCTop = RSS.readRSS("CNBC", "https://www.cnbc.com/id/100003114/device/rss/rss.html");
     System.out.println(Network.getNumOfArticles());
     System.out.println(articleArrayCNBCTop.get(0).getNewsNetwork());
     System.out.println(articleArrayCNBCTop.get(1).getArticleInfo());
+
+    ArrayList<Network> articleArrayBBCTop = new ArrayList<Network>();
+    articleArrayBBCTop = RSS.readRSS("BBC", "http://feeds.bbci.co.uk/news/rss.xml#");
+    System.out.println(Network.getNumOfArticles());
+    System.out.println(articleArrayBBCTop.get(0).getNewsNetwork());
+    System.out.println(articleArrayBBCTop.get(1).getArticleInfo());
   }
 }
