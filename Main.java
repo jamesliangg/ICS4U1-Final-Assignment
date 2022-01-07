@@ -30,10 +30,10 @@ public class Main{
     System.out.println(articleArrayNYTWorld.get(0).getNewsNetwork());
     System.out.println(articleArrayNYTWorld.get(1).getArticleInfo());
 
-    // ArrayList<Network> articleArraySCMPNews = new ArrayList<Network>();
-    // articleArraySCMPNews = RSS.readRSS("SCMP", "https://www.scmp.com/rss/91/feed");
-    // System.out.println(Network.getNumOfArticles());
-    // // System.out.println(articleArraySCMPNews.get(0).getNewsNetwork());
-    // System.out.println(articleArraySCMPNews.get(1).getArticleInfo());
+    ArrayList<Network> articleArrayCNBCTop = new ArrayList<Network>();
+    articleArrayCNBCTop = RSS.readRSS("CNBC", "https://www.cnbc.com/id/100003114/device/rss/rss.html");
+    System.out.println(Network.getNumOfArticles());
+    System.out.println(articleArrayCNBCTop.get(0).getNewsNetwork());
+    System.out.println(articleArrayCNBCTop.get(1).getArticleInfo());
   }
 }
