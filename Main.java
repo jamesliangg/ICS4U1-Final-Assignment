@@ -40,6 +40,6 @@ public class Main{
     articleArrayBBCTop = RSS.readRSS("BBC", "http://feeds.bbci.co.uk/news/rss.xml#");
     System.out.println(Network.getNumOfArticles());
     System.out.println(articleArrayBBCTop.get(0).getNewsNetwork());
-    System.out.println(articleArrayBBCTop.get(1).getArticleInfo());
+    System.out.println(articleArrayBBCTop.get(0).getArticleInfo());
   }
 }
