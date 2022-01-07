@@ -1,4 +1,4 @@
-import javax.swing.JOptionPane; //fancy GUI
+import javax.swing.*;  
 
 public class GUI{
   public static int articleChoice(Network[] articleArray){
@@ -12,5 +12,15 @@ public class GUI{
       return temp;
     }
     return 0;
+  }
+  public static void articleSplashScreen(){
+    JFrame f = new JFrame("Article Information");
+    JLabel l1;
+    l1 = new JLabel("Test Title");
+    l1.setBounds(50,50,100,30);
+    f.add(l1);
+    f.setSize(300,300);
+    f.setLayout(null);
+    f.setVisible(true);
   }
 }

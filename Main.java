@@ -8,6 +8,7 @@ public class Main{
     int articleNum = GUI.articleChoice(articleArray);
     System.out.println(articleNum);
     System.out.println(articleArray[articleNum].getArticleInfo());
+    GUI.articleSplashScreen();
     System.exit(0);
   }
 }
