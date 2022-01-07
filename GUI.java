@@ -1,14 +1,15 @@
 import javax.swing.*;  
+import java.util.ArrayList;
 
 public class GUI{
-  public static int articleChoice(Network[] articleArray){
-    String articleChoices[] = new String[articleArray.length];
-    for (int temp = 0; temp < articleArray.length; temp++){
-      articleChoices[temp] = articleArray[temp].getArticleInfo().getTitle();
+  public static int articleChoice(ArrayList<Network> articleArray){
+    String articleChoices[] = new String[articleArray.size()];
+    for (int temp = 0; temp < articleArray.size(); temp++){
+      articleChoices[temp] = articleArray.get(temp).getArticleInfo().getTitle();
     }
     String article = (String) JOptionPane.showInputDialog(null, "Pick an article.", "Article Options", JOptionPane.QUESTION_MESSAGE, null, articleChoices, articleChoices[0]);
-    for (int temp = 0; temp < articleArray.length; temp++){
-      if (article == articleArray[temp].getArticleInfo().getTitle())
+    for (int temp = 0; temp < articleArray.size(); temp++){
+      if (article == articleArray.get(temp).getArticleInfo().getTitle())
       return temp;
     }
     return 0;

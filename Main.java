@@ -7,9 +7,9 @@ public class Main{
     System.out.println(articleArray.get(0).getNewsNetwork());
     System.out.println(articleArray.get(19).getArticleInfo().getTitle());
     System.out.println(Network.getNumOfArticles());
-    // int articleNum = GUI.articleChoice(articleArray);
-    // System.out.println(articleNum);
-    // System.out.println(articleArray[articleNum].getArticleInfo());
+    int articleNum = GUI.articleChoice(articleArray);
+    System.out.println(articleNum);
+    System.out.println(articleArray.get(articleNum).getArticleInfo());
     GUI.articleSplashScreen();
     // System.exit(0);
   }

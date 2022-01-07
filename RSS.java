@@ -20,10 +20,7 @@ public class RSS{
       String title = "";
       String author = "";
       String pubDate = "";
-      // int tempTwo = 0;
       //https://www.geeksforgeeks.org/how-to-create-array-of-objects-in-java/
-      // Network[] articleArray;
-      // articleArray = new Network[20];
       ArrayList<Network> articleArray = new ArrayList<Network>();
       
       while((line=in.readLine())!=null){
@@ -74,7 +71,6 @@ public class RSS{
           temp = temp.substring(0,lastPos);
           author = temp;
           articleArray.add(new Network(newsNetwork, title,articleUrl, guid, author, pubDate));
-          // tempTwo++;
         }
       }
       in.close();
