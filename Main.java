@@ -9,6 +9,6 @@ public class Main{
     System.out.println(articleNum);
     System.out.println(articleArray[articleNum].getArticleInfo());
     GUI.articleSplashScreen();
-    System.exit(0);
+    // System.exit(0);
   }
 }

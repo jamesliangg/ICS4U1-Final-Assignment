@@ -7,6 +7,7 @@ Hopefully with enough practice, a user would be able to apply this not only to a
 //https://youtu.be/xiK-DH74oJg
 import java.io.*;
 import java.net.*;
+import java.util.ArrayList;
 
 public class RSS{
   public static Network[] readRSS(String newsNetwork, String urlAddress){
