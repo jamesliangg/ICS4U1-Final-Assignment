@@ -2,13 +2,7 @@ import java.util.ArrayList;
 
 public class Main{
   public static void main(String[] args){
-    // ArrayList<Network> articleArray = new ArrayList<Network>();
-    // articleArray = RSS.readRSS("CBC", "https://www.cbc.ca/cmlink/rss-Indigenous");
-    // System.out.println(articleArray.get(0).getNewsNetwork());
-    // System.out.println(articleArray.get(19).getArticleInfo());
-    // System.out.println(Network.getNumOfArticles());
-    // int articleNum = GUI.articleChoice(articleArray);
-    // System.out.println(articleNum);
+    ArrayList<Network> articleArray = new ArrayList<Network>();
     // System.out.println(articleArray.get(articleNum).getArticleInfo());
     // GUI.articleSplashScreen(articleArray, articleNum);
     // System.exit(0);
@@ -47,5 +41,29 @@ public class Main{
     System.out.println(Network.getNumOfArticles());
     System.out.println(articleArrayHKFP.get(0).getNewsNetwork());
     System.out.println(articleArrayHKFP.get(0).getArticleInfo());
+
+    String network = GUI.networkChoice();
+    switch (network){
+      case "CBC":
+        articleArray = articleArrayCBCTop;
+        break;
+      case "CTV":
+        articleArray = articleArrayCTVTop;
+        break;
+      case "NYT":
+        articleArray = articleArrayNYTWorld;
+        break;
+      case "CNBC":
+        articleArray = articleArrayCNBCTop;
+        break;
+      case "BBC":
+        articleArray = articleArrayBBCTop;
+        break;
+      case "HKFP":
+        articleArray = articleArrayHKFP;
+        break;
+    }
+    int articleNum = GUI.articleChoice(articleArray);
+    System.out.println(articleNum);
   }
 }

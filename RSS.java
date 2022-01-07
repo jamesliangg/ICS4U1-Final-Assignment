@@ -76,10 +76,15 @@ public class RSS{
           int lastPos = temp.indexOf("</author>");
           temp = temp.substring(0,lastPos);
           author = temp;
-          articleArray.add(new Network(newsNetwork, title, articleUrl, author, pubDate));
+          if (newsNetwork == "CBC"){
+            articleArray.add(new Network(newsNetwork, title, articleUrl, author, pubDate));
+          }
         }
       }
       in.close();
+      if (newsNetwork == "NYT" || newsNetwork == "CNBC"){
+        articleArray.remove(0);
+      }
       return articleArray;
     }catch (MalformedURLException ue){
       System.out.println("Malformed URL");
