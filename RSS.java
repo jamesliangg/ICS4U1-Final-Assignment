@@ -45,16 +45,7 @@ public class RSS{
           temp = temp.substring(0,lastPos);
           articleUrl = "https://outline.com/"+temp;
         }
-        //publication date
-        if (line.contains("<pubDate>")){
-          int firstPos = line.indexOf("<pubDate>");
-          String temp = line.substring(firstPos);
-          temp = temp.replace("<pubDate>","");
-          int lastPos = temp.indexOf("</pubDate>");
-          temp = temp.substring(0,lastPos);
-          pubDate = temp;
-        }
-        //author for CTV
+        //author for CTV and NYT
         if (line.contains("<dc:creator>")){
           int firstPos = line.indexOf("<dc:creator>");
           String temp = line.substring(firstPos);
@@ -64,7 +55,18 @@ public class RSS{
           int lastPos = temp.indexOf("</dc:creator>");
           temp = temp.substring(0,lastPos);
           author = temp;
-          articleArray.add(new Network(newsNetwork, title,articleUrl, author, pubDate));
+        }
+        //publication date
+        if (line.contains("<pubDate>")){
+          int firstPos = line.indexOf("<pubDate>");
+          String temp = line.substring(firstPos);
+          temp = temp.replace("<pubDate>","");
+          int lastPos = temp.indexOf("</pubDate>");
+          temp = temp.substring(0,lastPos);
+          pubDate = temp;
+          if (newsNetwork == "CTV" || newsNetwork == "NYT"){
+            articleArray.add(new Network(newsNetwork, title,articleUrl, author, pubDate));
+          }
         }
         //adding author
         if (line.contains("<author>")){

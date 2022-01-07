@@ -24,10 +24,16 @@ public class Main{
     System.out.println(articleArrayCTVTop.get(0).getNewsNetwork());
     System.out.println(articleArrayCTVTop.get(19).getArticleInfo());
 
-    ArrayList<Network> articleArraySCMPNews = new ArrayList<Network>();
-    articleArraySCMPNews = RSS.readRSS("SCMP", "https://www.scmp.com/rss/91/feed");
+    ArrayList<Network> articleArrayNYTWorld = new ArrayList<Network>();
+    articleArrayNYTWorld = RSS.readRSS("NYT", "https://rss.nytimes.com/services/xml/rss/nyt/World.xml");
     System.out.println(Network.getNumOfArticles());
-    // System.out.println(articleArraySCMPNews.get(0).getNewsNetwork());
-    System.out.println(articleArraySCMPNews.get(1).getArticleInfo());
+    System.out.println(articleArrayNYTWorld.get(0).getNewsNetwork());
+    System.out.println(articleArrayNYTWorld.get(19).getArticleInfo());
+
+    // ArrayList<Network> articleArraySCMPNews = new ArrayList<Network>();
+    // articleArraySCMPNews = RSS.readRSS("SCMP", "https://www.scmp.com/rss/91/feed");
+    // System.out.println(Network.getNumOfArticles());
+    // // System.out.println(articleArraySCMPNews.get(0).getNewsNetwork());
+    // System.out.println(articleArraySCMPNews.get(1).getArticleInfo());
   }
 }
