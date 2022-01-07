@@ -15,7 +15,6 @@ public class RSS{
       URL rssUrl = new URL(urlAddress);
       BufferedReader in = new BufferedReader(new InputStreamReader(rssUrl.openStream()));
       String line;
-      String guid = "";
       String articleUrl = "";
       String title = "";
       String author = "";
@@ -29,8 +28,10 @@ public class RSS{
           int firstPos = line.indexOf("<title>");
           String temp = line.substring(firstPos);
           temp = temp.replace("<title>","");
-          temp = temp.replace("<![CDATA[","");
-          temp = temp.replace("]]>","");
+          if (newsNetwork == "CBC" || newsNetwork == "CTV"){
+            temp = temp.replace("<![CDATA[","");
+            temp = temp.replace("]]>","");
+          }
           int lastPos = temp.indexOf("</title>");
           temp = temp.substring(0,lastPos);
           title = temp;
@@ -44,15 +45,6 @@ public class RSS{
           temp = temp.substring(0,lastPos);
           articleUrl = "https://outline.com/"+temp;
         }
-        //find GUID
-        if (line.contains("<guid isPermaLink=\"false\">")){
-          int firstPos = line.indexOf("<guid isPermaLink=\"false\">");
-          String temp = line.substring(firstPos);
-          temp = temp.replace("<guid isPermaLink=\"false\">","");
-          int lastPos = temp.indexOf("</guid>");
-          temp = temp.substring(0,lastPos);
-          guid = temp;
-        }
         //publication date
         if (line.contains("<pubDate>")){
           int firstPos = line.indexOf("<pubDate>");
@@ -62,6 +54,18 @@ public class RSS{
           temp = temp.substring(0,lastPos);
           pubDate = temp;
         }
+        //author for CTV
+        if (line.contains("<dc:creator>")){
+          int firstPos = line.indexOf("<dc:creator>");
+          String temp = line.substring(firstPos);
+          temp = temp.replace("<dc:creator>","");
+          temp = temp.replace("<![CDATA[","");
+          temp = temp.replace("]]>","");
+          int lastPos = temp.indexOf("</dc:creator>");
+          temp = temp.substring(0,lastPos);
+          author = temp;
+          articleArray.add(new Network(newsNetwork, title,articleUrl, author, pubDate));
+        }
         //adding author
         if (line.contains("<author>")){
           int firstPos = line.indexOf("<author>");
@@ -70,7 +74,7 @@ public class RSS{
           int lastPos = temp.indexOf("</author>");
           temp = temp.substring(0,lastPos);
           author = temp;
-          articleArray.add(new Network(newsNetwork, title,articleUrl, guid, author, pubDate));
+          articleArray.add(new Network(newsNetwork, title,articleUrl, author, pubDate));
         }
       }
       in.close();

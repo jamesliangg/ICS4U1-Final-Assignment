@@ -4,9 +4,9 @@ public class Network{
   public Article articleInfo;
   public static int numOfArticles = 0;
 
-  public Network(String newsNetwork, String title, String articleUrl, String guid, String author, String pubDate){
+  public Network(String newsNetwork, String title, String articleUrl, String author, String pubDate){
     this.newsNetwork = newsNetwork;
-    articleInfo = new Article(title, articleUrl, guid, author, pubDate);
+    articleInfo = new Article(title, articleUrl, author, pubDate);
     numOfArticles++;
   }
   public String getNewsNetwork(){

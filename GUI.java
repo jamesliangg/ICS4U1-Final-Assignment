@@ -14,11 +14,11 @@ public class GUI{
     }
     return 0;
   }
-  public static void articleSplashScreen(){
+  public static void articleSplashScreen(ArrayList<Network> articleArray, int articleNum){
     JFrame f = new JFrame("Article Information");
     JLabel l1;
-    l1 = new JLabel("Test Title");
-    l1.setBounds(50,50,100,30);
+    l1 = new JLabel(articleArray.get(articleNum).getArticleInfo().getTitle());
+    l1.setBounds(50,50,200,30);
     f.add(l1);
     f.setSize(300,300);
     f.setLayout(null);
