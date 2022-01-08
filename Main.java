@@ -66,5 +66,6 @@ public class Main{
     int articleNum = GUI.articleChoice(articleArray, network);
     System.out.println(articleNum);
     GUI.articleSplashScreen(articleArray, articleNum);
+    GUI.openArticle(articleArray, articleNum);
   }
 }

@@ -1,8 +1,11 @@
 import javax.swing.*;
-import java.awt.BorderLayout; 
-
+import java.awt.BorderLayout;
+import java.io.*; 
+import java.net.URISyntaxException;
 import java.awt.Font;
 import java.util.ArrayList;
+import java.awt.Desktop;
+import java.net.URI;
 
 public class GUI{
   public static int articleChoice(ArrayList<Network> articleArray, String network){
@@ -19,21 +22,22 @@ public class GUI{
   }
   public static void articleSplashScreen(ArrayList<Network> articleArray, int articleNum){
     JFrame f = new JFrame("Article Information");
-
+    //https://coderedirect.com/questions/118691/jlabel-show-longer-text-as-multiple-lines
     StringBuilder sb = new StringBuilder(128);
     sb.append("<html>").append(articleArray.get(articleNum).getArticleInfo().getTitle()+"</html>");
     JLabel l1 = new JLabel(sb.toString());
     l1.setBounds(25,0,475,150);
+    //https://stackoverflow.com/questions/2715118/how-to-change-the-size-of-the-font-of-a-jlabel-to-take-the-maximum-size
     l1.setFont(new Font("Serif", Font.CENTER_BASELINE, 20));
     JLabel l2;
     l2 = new JLabel(articleArray.get(articleNum).getArticleInfo().getPubDate());
     l2.setFont(new Font("Serif", Font.PLAIN, 16));
-    l2.setBounds(25,125,500,30);
+    l2.setBounds(25,125,475,30);
     f.add(l2);
     JLabel l3;
     l3 = new JLabel(articleArray.get(articleNum).getArticleInfo().getAuthor());
     l3.setFont(new Font("Serif", Font.PLAIN, 16));
-    l3.setBounds(25,145,500,30);
+    l3.setBounds(25,145,475,30);
     f.add(l3);
     f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     f.setLayout(new BorderLayout());
@@ -47,5 +51,16 @@ public class GUI{
     String networkChoices[] = {"CBC", "CTV", "NYT", "CNBC", "BBC", "HKFP"};
     String network = (String) JOptionPane.showInputDialog(null, "Pick a network.", "Network Options", JOptionPane.QUESTION_MESSAGE, null, networkChoices, networkChoices[0]);
     return network;
+  }
+  public static void openArticle(ArrayList<Network> articleArray, int articleNum){
+    try{
+      if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+        Desktop.getDesktop().browse(new URI(articleArray.get(articleNum).getArticleInfo().getUrl()));
+      }
+    }catch (IOException ioe){
+      System.out.println("IOException");
+    }catch (URISyntaxException sej){
+      System.out.println("URISyntaxExceptionJava");
+    }
   }
 }
