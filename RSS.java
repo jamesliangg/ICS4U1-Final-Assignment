@@ -82,6 +82,7 @@ public class RSS{
         }
       }
       in.close();
+      //removed first index as it wasn't an article
       if (newsNetwork == "NYT" || newsNetwork == "CNBC"){
         articleArray.remove(0);
       }

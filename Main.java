@@ -63,7 +63,8 @@ public class Main{
         articleArray = articleArrayHKFP;
         break;
     }
-    int articleNum = GUI.articleChoice(articleArray);
+    int articleNum = GUI.articleChoice(articleArray, network);
     System.out.println(articleNum);
+    GUI.articleSplashScreen(articleArray, articleNum);
   }
 }
