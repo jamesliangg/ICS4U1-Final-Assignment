@@ -19,13 +19,13 @@ public class Main{
     System.out.println(articleArrayCTVTop.get(1).getArticleInfo());
 
     ArrayList<Network> articleArrayNYTWorld = new ArrayList<Network>();
-    articleArrayNYTWorld = RSS.readRSS("NYT", "https://rss.nytimes.com/services/xml/rss/nyt/World.xml", "United States of America");
+    articleArrayNYTWorld = RSS.readRSS("NYT", "https://rss.nytimes.com/services/xml/rss/nyt/World.xml", "United States");
     System.out.println(Network.getNumOfArticles());
     System.out.println(articleArrayNYTWorld.get(0).getNewsNetwork());
     System.out.println(articleArrayNYTWorld.get(1).getArticleInfo());
 
     ArrayList<Network> articleArrayCNBCTop = new ArrayList<Network>();
-    articleArrayCNBCTop = RSS.readRSS("CNBC", "https://www.cnbc.com/id/100003114/device/rss/rss.html", "United States of America");
+    articleArrayCNBCTop = RSS.readRSS("CNBC", "https://www.cnbc.com/id/100003114/device/rss/rss.html", "United States");
     System.out.println(Network.getNumOfArticles());
     System.out.println(articleArrayCNBCTop.get(0).getNewsNetwork());
     System.out.println(articleArrayCNBCTop.get(1).getArticleInfo());
@@ -67,6 +67,6 @@ public class Main{
     int articleNum = GUI.articleChoice(articleArray, network);
     System.out.println(articleNum);
     GUI.articleSplashScreen(articleArray, articleNum);
-    GUI.openArticle(articleArray, articleNum);
+    // GUI.openArticle(articleArray, articleNum);
   }
 }

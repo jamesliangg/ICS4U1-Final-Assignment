@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.util.ArrayList;
 import java.awt.Desktop;
 import java.net.URI;
+import java.awt.event.*;
 
 public class GUI{
   public static int articleChoice(ArrayList<Network> articleArray, String network){
@@ -21,6 +22,7 @@ public class GUI{
     return 0;
   }
   public static void articleSplashScreen(ArrayList<Network> articleArray, int articleNum){
+    //https://www.javatpoint.com/java-jbutton
     JFrame f = new JFrame("Article Information");
     //https://coderedirect.com/questions/118691/jlabel-show-longer-text-as-multiple-lines
     StringBuilder sb = new StringBuilder(128);
@@ -47,6 +49,24 @@ public class GUI{
     l4.setFont(new Font("Serif", Font.PLAIN, 16));
     l4.setBounds(25,165,475,30);
     f.add(l4);
+    JButton l5 = new JButton("Read Article");
+    l5.setBounds(25,400,150,30);
+    l5.addActionListener(new ActionListener(){  
+      public void actionPerformed(ActionEvent e){  
+        openArticle(articleArray, articleNum);
+      }
+    });
+    f.add(l5);
+    //https://stackoverflow.com/questions/2352727/closing-jframe-with-button-click
+    JButton l6 = new JButton("Close");
+    l6.setBounds(325,400,150,30);
+    l6.addActionListener(new ActionListener(){  
+      public void actionPerformed(ActionEvent e){  
+        f.dispose();
+        System.exit(0);
+      }
+    });
+    f.add(l6);
     f.setSize(500,500);
     // f.setLocationRelativeTo(null);
     f.setLayout(null);
@@ -58,6 +78,7 @@ public class GUI{
     return network;
   }
   public static void openArticle(ArrayList<Network> articleArray, int articleNum){
+    //https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
     try{
       if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
         Desktop.getDesktop().browse(new URI(articleArray.get(articleNum).getArticleInfo().getUrl()));
