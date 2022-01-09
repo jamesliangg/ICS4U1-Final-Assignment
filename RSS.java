@@ -10,7 +10,7 @@ import java.net.*;
 import java.util.ArrayList;
 
 public class RSS{
-  public static ArrayList<Network> readRSS(String newsNetwork, String urlAddress){
+  public static ArrayList<Network> readRSS(String newsNetwork, String urlAddress, String country){
     try{
       URL rssUrl = new URL(urlAddress);
       BufferedReader in = new BufferedReader(new InputStreamReader(rssUrl.openStream()));
@@ -65,7 +65,7 @@ public class RSS{
           temp = temp.substring(0,lastPos);
           pubDate = temp;
           if (newsNetwork == "CTV" || newsNetwork == "NYT" || newsNetwork == "CNBC" || newsNetwork == "BBC" || newsNetwork == "HKFP"){
-            articleArray.add(new Network(newsNetwork, title, articleUrl, author, pubDate));
+            articleArray.add(new Network(newsNetwork, title, articleUrl, author, pubDate, country));
           }
         }
         //adding author
@@ -77,7 +77,7 @@ public class RSS{
           temp = temp.substring(0,lastPos);
           author = temp;
           if (newsNetwork == "CBC"){
-            articleArray.add(new Network(newsNetwork, title, articleUrl, author, pubDate));
+            articleArray.add(new Network(newsNetwork, title, articleUrl, author, pubDate, country));
           }
         }
       }

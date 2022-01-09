@@ -42,6 +42,11 @@ public class GUI{
     f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     f.setLayout(new BorderLayout());
     f.add(l1);
+    JLabel l4;
+    l4 = new JLabel(articleArray.get(articleNum).toString());
+    l4.setFont(new Font("Serif", Font.PLAIN, 16));
+    l4.setBounds(25,165,475,30);
+    f.add(l4);
     f.setSize(500,500);
     // f.setLocationRelativeTo(null);
     f.setLayout(null);
