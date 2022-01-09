@@ -19,6 +19,10 @@ public class GUI{
       if (article == articleArray.get(temp).getArticleInfo().getTitle())
       return temp;
     }
+    //cancel button or close window button action
+    if (article == null){
+      System.exit(0);
+    }
     return 0;
   }
   public static void articleSplashScreen(ArrayList<Network> articleArray, int articleNum){
@@ -75,6 +79,10 @@ public class GUI{
   public static String networkChoice(){
     String networkChoices[] = {"CBC", "CTV", "NYT", "CNBC", "BBC", "HKFP"};
     String network = (String) JOptionPane.showInputDialog(null, "Pick a network.", "Network Options", JOptionPane.QUESTION_MESSAGE, null, networkChoices, networkChoices[0]);
+    //cancel button or close window button action
+    if (network == null){
+      System.exit(0);
+    }
     return network;
   }
   public static void openArticle(ArrayList<Network> articleArray, int articleNum){
