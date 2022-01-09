@@ -28,6 +28,14 @@ public class RSS{
           int firstPos = line.indexOf("<title>");
           String temp = line.substring(firstPos);
           temp = temp.replace("<title>","");
+          //fixing formatting
+          temp = temp.replace("&apos;","\'");
+          temp = temp.replace("&quot;","\"");
+          temp = temp.replace("&#39;","\'");
+          temp = temp.replace("&#8211;","-");
+          temp = temp.replace("&#8217;","\'");
+          temp = temp.replace("&#8216;","\'");
+          temp = temp.replace("&#038;","&");
           if (newsNetwork == "CBC" || newsNetwork == "CTV" || newsNetwork == "BBC"){
             temp = temp.replace("<![CDATA[","");
             temp = temp.replace("]]>","");
