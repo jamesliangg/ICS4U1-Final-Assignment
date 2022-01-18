@@ -1,6 +1,11 @@
 import java.io.IOException;
 import java.util.ArrayList;
 
+import rssNewsBias.CSV;
+import rssNewsBias.GUI;
+import rssNewsBias.Network;
+import rssNewsBias.RSS;
+
 public class Main{
   public static void main(String[] args) throws IOException{
     int csvSize = CSV.csvSize("bias.csv");

@@ -1,3 +1,4 @@
+package rssNewsBias;
 import java.io.IOException; //handles errors
 import java.io.BufferedReader; //reading csv
 import java.io.FileReader; //reading csv

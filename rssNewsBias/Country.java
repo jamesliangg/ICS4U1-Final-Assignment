@@ -1,3 +1,4 @@
+package rssNewsBias;
 //is-a relationship
 public class Country {
     public String country;

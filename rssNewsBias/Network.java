@@ -1,3 +1,4 @@
+package rssNewsBias;
 //is-a relationship
 //has-a relationship
 public class Network extends Country{

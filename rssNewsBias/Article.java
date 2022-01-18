@@ -1,3 +1,4 @@
+package rssNewsBias;
 //has-a relationship
 public class Article{
   public String title;

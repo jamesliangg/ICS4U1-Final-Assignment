@@ -1,3 +1,4 @@
+package rssNewsBias;
 /*
 You scrape RSS feeds from different news providers. With the data, you use either tags or keywords to find articles that might relate to racism. You then provide the reader those articles and have them analyze it. They will have a checklist so they can think critically on what the article is trying to make them feel (angry/sad).
 
