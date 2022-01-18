@@ -26,7 +26,7 @@ public class GUI{
     }
     return 0;
   }
-  public static void articleSplashScreen(ArrayList<Network> articleArray, int articleNum){
+  public static void articleSplashScreen(ArrayList<Network> articleArray, int articleNum, int numBiasedWords){
     //https://www.javatpoint.com/java-jbutton
     JFrame f = new JFrame("Article Information");
     //https://coderedirect.com/questions/118691/jlabel-show-longer-text-as-multiple-lines
@@ -72,6 +72,16 @@ public class GUI{
       }
     });
     f.add(l6);
+    JLabel l7;
+    if (numBiasedWords == 0){
+      l7 = new JLabel("No biased words were detected.");
+    }
+    else{
+      l7 = new JLabel("There were " + numBiasedWords + " biased words detected.");
+    }
+    l7.setFont(new Font("Serif", Font.PLAIN, 16));
+    l7.setBounds(25,185,475,30);
+    f.add(l7);
     f.setSize(500,500);
     // f.setLocationRelativeTo(null);
     f.setLayout(null);
@@ -98,5 +108,14 @@ public class GUI{
     }catch (URISyntaxException sej){
       System.out.println("URISyntaxExceptionJava");
     }
+  }
+  public static int checkBias(ArrayList<Network> articleArray, int articleNum, String[] biasedWords){
+    int numBiasedWords = 0;
+    for (int i = 0; i < biasedWords.length; i++){
+      if (articleArray.get(articleNum).getArticleInfo().getTitle().contains(biasedWords[i])){
+        numBiasedWords++;
+      }
+    }
+    return numBiasedWords;
   }
 }

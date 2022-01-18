@@ -8,7 +8,6 @@ public class Main{
     String csvArray[] = new String[csvSize];
     csvArray = CSV.csvToArray("bias.csv", csvArray);
     ArrayList<Network> articleArray = new ArrayList<Network>();
-    // System.exit(0);
     ArrayList<Network> articleArrayCBCTop = new ArrayList<Network>();
     articleArrayCBCTop = RSS.readRSS("CBC", "https://rss.cbc.ca/lineup/topstories.xml", "Canada");
     System.out.println(Network.getNumOfArticles());
@@ -69,7 +68,8 @@ public class Main{
     }
     int articleNum = GUI.articleChoice(articleArray, network);
     System.out.println(articleNum);
-    GUI.articleSplashScreen(articleArray, articleNum);
+    int numBiasedWords = GUI.checkBias(articleArray, articleNum, csvArray);
+    GUI.articleSplashScreen(articleArray, articleNum, numBiasedWords);
     // GUI.openArticle(articleArray, articleNum);
   }
 }
