@@ -3,7 +3,9 @@ import java.util.ArrayList;
 
 public class Main{
   public static void main(String[] args) throws IOException{
-    String csvArray[] = new String[2];
+    int csvSize = CSV.csvSize("bias.csv");
+    System.out.println(csvSize);
+    String csvArray[] = new String[csvSize];
     csvArray = CSV.csvToArray("bias.csv", csvArray);
     ArrayList<Network> articleArray = new ArrayList<Network>();
     // System.exit(0);

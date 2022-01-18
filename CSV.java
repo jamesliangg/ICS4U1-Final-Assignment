@@ -29,4 +29,25 @@ public class CSV {
 		}
     return csvArray;
   }
+  public static int csvSize(String file) throws IOException {
+    int lineNum = 0;
+    try{
+        //reads from the file
+        BufferedReader infile = new BufferedReader (new FileReader(file));
+        String line;
+        System.out.println("Beginning to read the file now:");
+        //set line to the contents of the file
+        line=infile.readLine();
+        while (line!=null){
+            //goes to the next line
+            line=infile.readLine();
+            lineNum++;
+        }
+        System.out.println("Closing file.");
+        infile.close();
+    }catch (FileNotFoundException e){
+        System.out.println("Incorrect filename or location. Please verify path and filename. ");
+    }
+    return lineNum;
+    }
 }
