@@ -20,6 +20,7 @@ public class GUI{
       return temp;
     }
     //cancel button or close window button action
+    //https://stackoverflow.com/questions/11494222/how-to-handle-cancel-button-in-joptionpane
     if (article == null){
       System.exit(0);
     }
@@ -80,6 +81,7 @@ public class GUI{
     String networkChoices[] = {"CBC", "CTV", "NYT", "CNBC", "BBC", "HKFP"};
     String network = (String) JOptionPane.showInputDialog(null, "Pick a network.", "Network Options", JOptionPane.QUESTION_MESSAGE, null, networkChoices, networkChoices[0]);
     //cancel button or close window button action
+    //https://stackoverflow.com/questions/11494222/how-to-handle-cancel-button-in-joptionpane
     if (network == null){
       System.exit(0);
     }

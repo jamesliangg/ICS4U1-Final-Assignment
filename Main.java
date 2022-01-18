@@ -1,10 +1,11 @@
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Main{
-  public static void main(String[] args){
+  public static void main(String[] args) throws IOException{
+    String csvArray[] = new String[2];
+    csvArray = CSV.csvToArray("bias.csv", csvArray);
     ArrayList<Network> articleArray = new ArrayList<Network>();
-    // System.out.println(articleArray.get(articleNum).getArticleInfo());
-    // GUI.articleSplashScreen(articleArray, articleNum);
     // System.exit(0);
     ArrayList<Network> articleArrayCBCTop = new ArrayList<Network>();
     articleArrayCBCTop = RSS.readRSS("CBC", "https://rss.cbc.ca/lineup/topstories.xml", "Canada");
