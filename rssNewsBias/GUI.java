@@ -56,7 +56,7 @@ public class GUI{
     l4.setBounds(25,165,475,30);
     f.add(l4);
     JButton l5 = new JButton("Read Article");
-    l5.setBounds(25,400,150,30);
+    l5.setBounds(25,225,150,30);
     l5.addActionListener(new ActionListener(){  
       public void actionPerformed(ActionEvent e){  
         openArticle(articleArray, articleNum);
@@ -65,7 +65,7 @@ public class GUI{
     f.add(l5);
     //https://stackoverflow.com/questions/2352727/closing-jframe-with-button-click
     JButton l6 = new JButton("Close");
-    l6.setBounds(325,400,150,30);
+    l6.setBounds(325,225,150,30);
     l6.addActionListener(new ActionListener(){  
       public void actionPerformed(ActionEvent e){  
         f.dispose();
@@ -83,7 +83,7 @@ public class GUI{
     l7.setFont(new Font("Serif", Font.PLAIN, 16));
     l7.setBounds(25,185,475,30);
     f.add(l7);
-    f.setSize(500,500);
+    f.setSize(500,300);
     // f.setLocationRelativeTo(null);
     f.setLayout(null);
     f.setVisible(true);
