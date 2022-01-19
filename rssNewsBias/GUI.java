@@ -113,7 +113,7 @@ public class GUI{
   public static int checkBias(ArrayList<Network> articleArray, int articleNum, String[] biasedWords){
     int numBiasedWords = 0;
     for (int i = 0; i < biasedWords.length; i++){
-      if (articleArray.get(articleNum).getArticleInfo().getTitle().contains(biasedWords[i])){
+      if (articleArray.get(articleNum).getArticleInfo().getTitle().toLowerCase().contains(biasedWords[i].toLowerCase())){
         numBiasedWords++;
       }
     }
