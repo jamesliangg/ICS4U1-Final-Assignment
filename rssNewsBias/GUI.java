@@ -123,11 +123,23 @@ public class GUI{
     int play = JOptionPane.showConfirmDialog(null, "Would you like to have background music?", "BGM", JOptionPane.YES_NO_OPTION);
     if (play == 0){
       int csvSize = CSV.csvSize("music.csv");
-      String musicArray[] = new String[csvSize];
+      System.out.println(csvSize);
+      String musicArray[][] = new String[csvSize][2];
+      int musicIndex = 0;
       CSV.csvToArray("music.csv", musicArray);
-      String bgm = (String) JOptionPane.showInputDialog(null, "Pick a Song.", "BGM Options", JOptionPane.QUESTION_MESSAGE, null, musicArray, musicArray[0]);
+      String musicTitles[] = new String[csvSize];
+      for (int i = 0; i < musicArray.length; i++){
+        musicTitles[i] = musicArray[i][0];
+      }
+      String bgm = (String) JOptionPane.showInputDialog(null, "Pick a Song.", "BGM Options", JOptionPane.QUESTION_MESSAGE, null, musicTitles, musicTitles[0]);
+      for (int i = 0; i < musicArray.length; i++){
+        if (bgm == musicTitles[i]){
+          musicIndex = i;
+        }
+      }
       Audio musicObject = new Audio();
-      musicObject.playMusic("music/" + bgm);
+      String musicURL = musicArray[musicIndex][1];
+      musicObject.playMusic(musicURL);
     }
   }
 }
