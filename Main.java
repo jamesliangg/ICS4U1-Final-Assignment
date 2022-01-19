@@ -8,6 +8,7 @@ import rssNewsBias.RSS;
 
 public class Main{
   public static void main(String[] args) throws IOException{
+    GUI.musicPrompt();
     int csvSize = CSV.csvSize("bias.csv");
     System.out.println(csvSize);
     String csvArray[] = new String[csvSize];
