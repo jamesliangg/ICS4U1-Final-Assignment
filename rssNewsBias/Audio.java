@@ -10,6 +10,7 @@ public class Audio {
     //https://youtu.be/TErboGLHZGA
     public void playMusic(String filePath){
         try{
+            //http://www.java2s.com/Code/Java/Development-Class/LoadaudiofileFromURL.htm
             AudioInputStream audioInput = AudioSystem.getAudioInputStream(new URL(filePath));
             Clip clip = AudioSystem.getClip();
             clip.open(audioInput);

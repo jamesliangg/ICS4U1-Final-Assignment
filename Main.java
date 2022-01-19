@@ -76,6 +76,5 @@ public class Main{
     System.out.println(articleNum);
     int numBiasedWords = GUI.checkBias(articleArray, articleNum, csvArray);
     GUI.articleSplashScreen(articleArray, articleNum, numBiasedWords);
-    // GUI.openArticle(articleArray, articleNum);
   }
 }
