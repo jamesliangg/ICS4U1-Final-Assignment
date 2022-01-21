@@ -9,7 +9,21 @@ import java.awt.Desktop;
 import java.net.URI;
 import java.awt.event.*;
 
+/**
+ * The GUI program provides most of the user interfaces.
+ * 
+ * @author James Liang
+ * @version 1.0
+ * @since 2022-01-06
+ */
 public class GUI{
+  /**
+   * This method presents the user with articles based on the selected news network
+   * 
+   * @param articleArray  These are the articles from the news network
+   * @param network       This is the chosen news network
+   * @return int          This is the index value of the chosen article
+   */
   public static int articleChoice(ArrayList<Network> articleArray, String network){
     String articleChoices[] = new String[articleArray.size()];
     for (int temp = 0; temp < articleArray.size(); temp++){
@@ -27,6 +41,14 @@ public class GUI{
     }
     return 0;
   }
+  /**
+   * This method displays all the article information along with buttons to do
+   * more actions
+   * 
+   * @param articleArray    These are the articles from the news network 
+   * @param articleNum      This is the index value of the chosen article
+   * @param numBiasedWords  This is the number of detected biased words
+   */
   public static void articleSplashScreen(ArrayList<Network> articleArray, int articleNum, int numBiasedWords){
     //https://www.javatpoint.com/java-jbutton
     JFrame f = new JFrame("Article Information");
@@ -88,6 +110,11 @@ public class GUI{
     f.setLayout(null);
     f.setVisible(true);
   }
+  /**
+   * This method asks the user to pick a news network
+   * 
+   * @return String This is the chosen news network
+   */
   public static String networkChoice(){
     String networkChoices[] = {"CBC", "CTV", "NYT", "CNBC", "BBC", "HKFP"};
     String network = (String) JOptionPane.showInputDialog(null, "Pick a network.", "Network Options", JOptionPane.QUESTION_MESSAGE, null, networkChoices, networkChoices[0]);
@@ -98,6 +125,12 @@ public class GUI{
     }
     return network;
   }
+  /**
+   * This method opens the chosen article in the default browser if supported
+   * 
+   * @param articleArray  These are the articles from the news network
+   * @param articleNum    This is the index value of the chosen article
+   */
   public static void openArticle(ArrayList<Network> articleArray, int articleNum){
     //https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
     try{
@@ -110,6 +143,14 @@ public class GUI{
       System.out.println("URISyntaxExceptionJava");
     }
   }
+  /**
+   * This method checks the article headline for biased words
+   * 
+   * @param articleArray  These are the articles from the news network
+   * @param articleNum    This is the index value of the chosen article
+   * @param biasedWords   This is the array of words from the bias.csv file
+   * @return int          This is the amount of detected biased words
+   */
   public static int checkBias(ArrayList<Network> articleArray, int articleNum, String[] biasedWords){
     int numBiasedWords = 0;
     for (int i = 0; i < biasedWords.length; i++){
@@ -119,6 +160,11 @@ public class GUI{
     }
     return numBiasedWords;
   }
+  /**
+   * This method asks the user if they'd like music and if so which song
+   * 
+   * @throws IOException
+   */
   public static void musicPrompt() throws IOException{
     int play = JOptionPane.showConfirmDialog(null, "Would you like to have background music?", "BGM", JOptionPane.YES_NO_OPTION);
     if (play == 0){

@@ -4,7 +4,24 @@ import java.io.BufferedReader; //reading csv
 import java.io.FileReader; //reading csv
 import java.io.FileNotFoundException; //handles if file can't be read
 
+/**
+ * The CSV program works with .csv files and returns different options
+ * depending on what was examined.
+ * 
+ * @author James Liang
+ * @version 1.0
+ * @since 2022-01-06
+ */
 public class CSV {
+  /**
+   * This method takes in the .csv file and sets the parameter array's
+   * values to those of the .csv file.
+   * 
+   * @param file      This is the .csv file that is being examined
+   * @param csvArray  This is the array that is being modified
+   * @return String[] This is the modified array
+   * @throws IOException
+   */
     public static String[] csvToArray(String file, String[] csvArray) throws IOException {
 		try{
 			//reads from the file
@@ -30,6 +47,13 @@ public class CSV {
 		}
     return csvArray;
   }
+  /**
+   * This method takes in the .csv file and finds the amount of rows it has
+   * 
+   * @param file  This is the .csv file that is being examined
+   * @return int  This is the number of rows
+   * @throws IOException
+   */
   public static int csvSize(String file) throws IOException {
     int lineNum = 0;
     try{
@@ -51,6 +75,15 @@ public class CSV {
     }
     return lineNum;
     }
+    /**
+     * This method takes in the .csv file and sets the parameter array's
+     * values to those of the .csv file.
+     * 
+     * @param file        This is the .csv file that is being examined
+     * @param csvArray    This is the array that is being modified
+     * @return String[][] This is the modified array
+     * @throws IOException
+     */
     public static String[][] csvToArray(String file, String[][] csvArray) throws IOException {
 		try
     {

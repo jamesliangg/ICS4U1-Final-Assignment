@@ -1,16 +1,27 @@
 package rssNewsBias;
-/*
-You scrape RSS feeds from different news providers. With the data, you use either tags or keywords to find articles that might relate to racism. You then provide the reader those articles and have them analyze it. They will have a checklist so they can think critically on what the article is trying to make them feel (angry/sad).
 
-Hopefully with enough practice, a user would be able to apply this not only to articles on racism, but to think critically on all news articles they read.
-*/
-
-//https://youtu.be/xiK-DH74oJg
 import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
 
+/**
+ * The RSS program reads RSS files from different news networks and prepares it for
+ * use in the rest of the program.
+ *
+ * @author James Liang
+ * @version 1.0
+ * @since 2022-01-06
+ */
 public class RSS{
+  /**
+   * This method takes in the RSS feed and turns it into an Array List
+   * 
+   * @param newsNetwork         This is the name of the news network
+   * @param urlAddress          This is the Url link of the RSS feed for the news network
+   * @param country             This is the country of the news network
+   * @return ArrayList<Network> This is the Array List of articles from the RSS feed
+   */
+  //https://youtu.be/xiK-DH74oJg
   public static ArrayList<Network> readRSS(String newsNetwork, String urlAddress, String country){
     try{
       URL rssUrl = new URL(urlAddress);
