@@ -6,6 +6,13 @@ import rssNewsBias.GUI;
 import rssNewsBias.Network;
 import rssNewsBias.RSS;
 
+/**
+ * The Main program calls methods from different classes.
+ * 
+ * @author James Liang
+ * @version 1.0
+ * @since 2022-01-06
+ */
 public class Main{
   public static void main(String[] args) throws IOException{
     GUI.musicPrompt();
