@@ -8,6 +8,7 @@ package rssNewsBias;
  * @since 2022-01-06
  */
 public class Article{
+  //declaring variables
   public String title;
   public String articleUrl;
   public String author;
