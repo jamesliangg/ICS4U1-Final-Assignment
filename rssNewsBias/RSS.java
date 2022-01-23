@@ -26,6 +26,7 @@ public class RSS{
     try{
       URL rssUrl = new URL(urlAddress);
       BufferedReader in = new BufferedReader(new InputStreamReader(rssUrl.openStream()));
+      //declaring variables
       String line;
       String articleUrl = "";
       String title = "";
@@ -33,14 +34,14 @@ public class RSS{
       String pubDate = "";
       //https://www.geeksforgeeks.org/how-to-create-array-of-objects-in-java/
       ArrayList<Network> articleArray = new ArrayList<Network>();
-      
+      //keep reading as long as there is content
       while((line=in.readLine())!=null){
         //grab title
         if (line.contains("<title>")){
           int firstPos = line.indexOf("<title>");
           String temp = line.substring(firstPos);
           temp = temp.replace("<title>","");
-          //fixing formatting
+          //fixing formatting of headlines
           temp = temp.replace("&apos;","\'");
           temp = temp.replace("&quot;","\"");
           temp = temp.replace("&#39;","\'");
@@ -48,6 +49,7 @@ public class RSS{
           temp = temp.replace("&#8217;","\'");
           temp = temp.replace("&#8216;","\'");
           temp = temp.replace("&#038;","&");
+          //special formating for specific news netowrks
           if (newsNetwork == "CBC" || newsNetwork == "CTV" || newsNetwork == "BBC"){
             temp = temp.replace("<![CDATA[","");
             temp = temp.replace("]]>","");
@@ -63,6 +65,7 @@ public class RSS{
           temp = temp.replace("<link>","");
           int lastPos = temp.indexOf("</link>");
           temp = temp.substring(0,lastPos);
+          //add Outline.com to remove potential paywalls
           articleUrl = "https://outline.com/"+temp;
         }
         //author for CTV and NYT
@@ -84,6 +87,7 @@ public class RSS{
           int lastPos = temp.indexOf("</pubDate>");
           temp = temp.substring(0,lastPos);
           pubDate = temp;
+          //special order for specific news networks
           if (newsNetwork == "CTV" || newsNetwork == "NYT" || newsNetwork == "CNBC" || newsNetwork == "BBC" || newsNetwork == "HKFP"){
             articleArray.add(new Network(newsNetwork, title, articleUrl, author, pubDate, country));
           }
@@ -96,6 +100,7 @@ public class RSS{
           int lastPos = temp.indexOf("</author>");
           temp = temp.substring(0,lastPos);
           author = temp;
+          //special order for specific news network
           if (newsNetwork == "CBC"){
             articleArray.add(new Network(newsNetwork, title, articleUrl, author, pubDate, country));
           }

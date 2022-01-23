@@ -9,6 +9,7 @@ package rssNewsBias;
  * @since 2022-01-06
  */
 public class Country {
+    //declaring variables
     public String country;
     public String DEFAULT_COUNTRY = "Canada";
     /**

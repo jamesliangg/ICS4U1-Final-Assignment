@@ -15,13 +15,18 @@ import rssNewsBias.RSS;
  */
 public class Main{
   public static void main(String[] args) throws IOException{
+    //call to see if user wants music
     GUI.musicPrompt();
+    //find amount of biased words located in .csv file
     int csvSize = CSV.csvSize("bias.csv");
     System.out.println(csvSize);
+    //create 1D array for biased words
     String csvArray[] = new String[csvSize];
     csvArray = CSV.csvToArray("bias.csv", csvArray);
+    //create new Array List for news networks
     ArrayList<Network> articleArray = new ArrayList<Network>();
     ArrayList<Network> articleArrayCBCTop = new ArrayList<Network>();
+    //get required information from RSS feeds
     articleArrayCBCTop = RSS.readRSS("CBC", "https://rss.cbc.ca/lineup/topstories.xml", "Canada");
     System.out.println(Network.getNumOfArticles());
     System.out.println(articleArrayCBCTop.get(0).getNewsNetwork());
@@ -57,8 +62,10 @@ public class Main{
     System.out.println(articleArrayHKFP.get(0).getNewsNetwork());
     System.out.println(articleArrayHKFP.get(0).getArticleInfo());
 
+    //ask user which news network they'd like to read
     String network = GUI.networkChoice();
     //https://www.w3schools.com/java/java_switch.asp
+    //change article array based on network selection
     switch (network){
       case "CBC":
         articleArray = articleArrayCBCTop;
@@ -79,9 +86,12 @@ public class Main{
         articleArray = articleArrayHKFP;
         break;
     }
+    //ask user to pick an article
     int articleNum = GUI.articleChoice(articleArray, network);
     System.out.println(articleNum);
+    //check for biased words based on headline of chosen article
     int numBiasedWords = GUI.checkBias(articleArray, articleNum, csvArray);
+    //display information on article
     GUI.articleSplashScreen(articleArray, articleNum, numBiasedWords);
   }
 }

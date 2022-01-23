@@ -9,6 +9,7 @@ package rssNewsBias;
  * @since 2022-01-06
  */
 public class Network extends Country{
+  //declaring variables
   public String newsNetwork;
   public Article articleInfo;
   public static int numOfArticles = 0;
