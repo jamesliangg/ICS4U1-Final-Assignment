@@ -13,10 +13,10 @@ public class Article{
   public String articleUrl;
   public String author;
   public String pubDate;
-  public String DEFAULT_TITLE = "When life gives you lemons: How a N.S. bakery got — and got rid of — a heap of sour fruit";
-  public String DEFAULT_ARTICLEURL = "https://outline.com/qAWvLV";
-  public String DEFAULT_AUTHOR = "Cassidy Chisholm";
-  public String DEFAULT_PUBDATE = "Tue, 4 Jan 2022 16:29:40 EST";
+  private String DEFAULT_TITLE = "When life gives you lemons: How a N.S. bakery got — and got rid of — a heap of sour fruit";
+  private String DEFAULT_ARTICLEURL = "https://outline.com/qAWvLV";
+  private String DEFAULT_AUTHOR = "Cassidy Chisholm";
+  private String DEFAULT_PUBDATE = "Tue, 4 Jan 2022 16:29:40 EST";
   
   /**
    * This constructor creates an object with all the variables at their default values.
